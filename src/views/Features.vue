@@ -191,13 +191,13 @@ onMounted(() => {
             <div class="md:col-span-3">
               <div class="flex flex-col text-center md:text-start mb-8">
                 <!-- <div class="w-16 h-1 bg-green-500 mb-6"></div> -->
-                <div class="flex items-center justify-center mx-auto md:mx-0">
+                <div class="flex items-center justify-start mx-auto md:mx-0">
                   <div class="w-16 h-1  bg-green-500 mb-6"></div>
                 </div>
-                <h3 class="text-3xl font-bold text-green-800 mb-6 text-center">
+                <h3 class="text-3xl font-bold text-green-800 mb-6 text-center md:text-start">
                   Smart Cannabis Analytics
                 </h3>
-                <p class="md:text-xl text-gray-700 mb-8 text-md text-center">
+                <p class="md:text-xl text-gray-700 mb-8 text-md text-center md:text-start">
                   Get deep visibility into your brand's performance with our comprehensive tracking tools.
                 </p>
               </div>
