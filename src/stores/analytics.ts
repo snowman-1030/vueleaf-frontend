@@ -14,12 +14,12 @@ import axios from '@/lib/axios'
 
 export const useAnalyticsStore = defineStore('analytics', () => {
   // State
-  const posts = ref<ScrapedPost[]>([])
+  // const posts = ref<ScrapedPost[]>([])
   const allPosts = ref<ScrapedPost[]>([]) // Full dataset for calculations
   const scraperStatus = ref<ScraperStatus | null>(null)
   const isLoading = ref(false)
   const error = ref<string | null>(null)
-  const brandRating = ref<BrandRating | null>(null)
+  // const brandRating = ref<BrandRating | null>(null)
   const brandRatingStatus = ref<'idle' | 'loading' | 'calculating' | 'error'>('idle')
   const brandRatingError = ref<string | null>(null)
 
@@ -64,93 +64,93 @@ export const useAnalyticsStore = defineStore('analytics', () => {
   // Graph data from API
   const graphData = ref<SentimentDataPoint[]>([])
 
-  const sentimentOverTime = computed((): SentimentDataPoint[] => {
-    return graphData.value
-  })
+  // const sentimentOverTime = computed((): SentimentDataPoint[] => {
+  //   return graphData.value
+  // })
 
   // Server-provided stats
   const keywordStats = ref<KeywordDataPoint[]>([])
   const platformStats = ref<PlatformDataPoint[]>([])
 
-  const keywordAnalysis = computed((): KeywordDataPoint[] => {
-    if (!allPosts.value || allPosts.value.length === 0) return []
+  // const keywordAnalysis = computed((): KeywordDataPoint[] => {
+  //   if (!allPosts.value || allPosts.value.length === 0) return []
 
-    const keywordSourceStats = allPosts.value.reduce((acc, post) => {
-      if (!post.keyword_term || !post.source) return acc
+  //   const keywordSourceStats = allPosts.value.reduce((acc, post) => {
+  //     if (!post.keyword_term || !post.source) return acc
       
-      // Apply date filter
-      const postDate = new Date(post.post_date)
-      if (postDate < filters.value.dateRange.start || postDate > filters.value.dateRange.end) {
-        return acc
-      }
+  //     // Apply date filter
+  //     const postDate = new Date(post.post_date)
+  //     if (postDate < filters.value.dateRange.start || postDate > filters.value.dateRange.end) {
+  //       return acc
+  //     }
 
-      const key = `${post.keyword_term}|${post.source}`
-      if (!acc[key]) {
-        acc[key] = {
-          id: post.keyword_id,
-          keyword: post.keyword_term,
-          source: post.source,
-          mentions: 0,
-          positive: 0,
-          neutral: 0,
-          negative: 0
-        }
-      }
+  //     const key = `${post.keyword_term}|${post.source}`
+  //     if (!acc[key]) {
+  //       acc[key] = {
+  //         id: post.keyword_id,
+  //         keyword: post.keyword_term,
+  //         source: post.source,
+  //         mentions: 0,
+  //         positive: 0,
+  //         neutral: 0,
+  //         negative: 0
+  //       }
+  //     }
 
-      const stats = acc[key]
-      stats.mentions++
-      if (post.sentiment) {
-        stats[post.sentiment]++
-      }
+  //     const stats = acc[key]
+  //     stats.mentions++
+  //     if (post.sentiment) {
+  //       stats[post.sentiment]++
+  //     }
 
-      return acc
-    }, {} as Record<string, KeywordDataPoint>)
+  //     return acc
+  //   }, {} as Record<string, KeywordDataPoint>)
 
-    let keywordStats = Object.values(keywordSourceStats)
-      .filter(stat => stat.mentions >= filters.value.minMentions)
+  //   let keywordStats = Object.values(keywordSourceStats)
+  //     .filter(stat => stat.mentions >= filters.value.minMentions)
 
-    if (filters.value.platforms.length === 0) {
-      const aggregatedStats = keywordStats.reduce((acc, stat) => {
-        if (!acc[stat.keyword]) {
-          acc[stat.keyword] = {
-            id: stat.id,
-            keyword: stat.keyword,
-            mentions: 0,
-            positive: 0,
-            neutral: 0,
-            negative: 0,
-            source: 'all'
-          }
-        }
+  //   if (filters.value.platforms.length === 0) {
+  //     const aggregatedStats = keywordStats.reduce((acc, stat) => {
+  //       if (!acc[stat.keyword]) {
+  //         acc[stat.keyword] = {
+  //           id: stat.id,
+  //           keyword: stat.keyword,
+  //           mentions: 0,
+  //           positive: 0,
+  //           neutral: 0,
+  //           negative: 0,
+  //           source: 'all'
+  //         }
+  //       }
 
-        const aggregate = acc[stat.keyword]
-        aggregate.mentions += stat.mentions
-        aggregate.positive += stat.positive
-        aggregate.neutral += stat.neutral
-        aggregate.negative += stat.negative
+  //       const aggregate = acc[stat.keyword]
+  //       aggregate.mentions += stat.mentions
+  //       aggregate.positive += stat.positive
+  //       aggregate.neutral += stat.neutral
+  //       aggregate.negative += stat.negative
 
-        return acc
-      }, {} as Record<string, KeywordDataPoint>)
+  //       return acc
+  //     }, {} as Record<string, KeywordDataPoint>)
 
-      keywordStats = Object.values(aggregatedStats)
-    } else {
-      keywordStats = keywordStats.filter(stat =>
-        filters.value.platforms.includes(stat.source)
-      )
-    }
+  //     keywordStats = Object.values(aggregatedStats)
+  //   } else {
+  //     keywordStats = keywordStats.filter(stat =>
+  //       filters.value.platforms.includes(stat.source)
+  //     )
+  //   }
 
-    return keywordStats.sort((a, b) => {
-      if (filters.value.sortBy === 'mentions') {
-        return b.mentions - a.mentions
-      } else if (filters.value.sortBy === 'sentiment') {
-        const aPositiveRate = a.mentions > 0 ? a.positive / a.mentions : 0
-        const bPositiveRate = b.mentions > 0 ? b.positive / b.mentions : 0
-        return bPositiveRate - aPositiveRate
-      } else { // growth
-        return b.mentions - a.mentions
-      }
-    })
-  })
+  //   return keywordStats.sort((a, b) => {
+  //     if (filters.value.sortBy === 'mentions') {
+  //       return b.mentions - a.mentions
+  //     } else if (filters.value.sortBy === 'sentiment') {
+  //       const aPositiveRate = a.mentions > 0 ? a.positive / a.mentions : 0
+  //       const bPositiveRate = b.mentions > 0 ? b.positive / b.mentions : 0
+  //       return bPositiveRate - aPositiveRate
+  //     } else { // growth
+  //       return b.mentions - a.mentions
+  //     }
+  //   })
+  // })
 
   const platformSummary = computed((): PlatformDataPoint[] => platformStats.value)
 
@@ -415,8 +415,70 @@ export const useAnalyticsStore = defineStore('analytics', () => {
   const overallStats = {
     positiveSentiment: 10,
     totalMentions: 20,
-    
+    activeKeywords: 40
   }
+
+  const brandRating = {
+    total_score: 50
+  }
+
+  const sentimentOverTime = [2, 5, 90]
+
+// {
+//   id: number
+//   keyword_id: number
+//   keyword_term: string
+//   title: string
+//   content: string
+//   url: string
+//   author: string
+//   source: string
+//   post_date: string
+//   sentiment: 'positive' | 'negative' | 'neutral'
+//   sentiment_confidence: number
+//   created_at: string
+//   updated_at: string
+// }
+
+  const posts = [
+    {
+      id:0, 
+      keyword_id:0,
+      keyword_term:"keyword_term0",
+      title:"title0",
+      content:"content0content0contentcontent0content0content0content0content0content0contentcontent0content0content0content0",
+      url:"https://you.com",
+      author:"author0",
+      source:"source0",
+      post_date:"post_date0",
+      sentiment:'positive',
+      sentiment_confidence:0,
+      created_at:"2024/4/5",
+      updated_at:"2025/4/6"
+    }
+  ]
+
+  // {
+  //   id: number
+  // keyword: string
+  // mentions: number
+  // positive: number
+  // neutral: number
+  // negative: number
+  // source: string
+  // }
+
+  const keywordAnalysis = [
+    {
+      id: 0,
+      keyword: "keyword0",
+      mentions:0,
+      positive:0,
+      neutral:0,
+      negative:"negative0",
+      source:"source0"
+    }
+  ]
 
   return {
     // State

@@ -415,16 +415,17 @@ const getKeywordTrend = (keyword: KeywordDataPoint): 'up' | 'down' | 'stable' =>
       </Alert>
 
       <!-- Sentiment Alert -->
+      <!-- <Card class="mb-8 bg-white shadow-sm hover:shadow-md transition-shadow duration-200"> -->
       <Alert v-else-if="sentimentChange"
         :variant="sentimentChange.direction === 'increased' ? 'destructive' : 'default'" :class="{
           'mb-8 shadow-sm hover:shadow-md transition-all duration-200 border border-yellow-500/10 bg-gradient-to-br from-yellow-50/60 to-amber-50/60 rounded-lg flex items-center gap-3': sentimentChange.direction === 'increased',
           'mb-8 shadow-sm hover:shadow-md transition-all duration-200 border border-emerald-500/10 bg-gradient-to-br from-emerald-50/60 to-green-50/60 rounded-lg flex items-center gap-3': sentimentChange.direction === 'decreased'
         }">
-        <div class="flex items-center justify-center w-10 h-10 rounded-lg" :class="sentimentChange.direction === 'increased'
+        <div class="flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-amber-100/60 to-yellow-100/60 border border-amber-500/10" :class="sentimentChange.direction === 'increased'
           ? 'bg-gradient-to-br from-yellow-100/60 to-amber-100/60 border border-yellow-500/10'
           : 'bg-gradient-to-br from-emerald-100/60 to-green-100/60 border border-emerald-500/10'">
           <component :is="sentimentChange.direction === 'increased' ? AlertTriangle : TrendingUp" :class="[
-            'h-6 w-6',
+            'h-5 md:w-5 w-10 text-amber-600',
             sentimentChange.direction === 'increased' ? 'text-yellow-800' : 'text-green-800'
           ]" />
         </div>
@@ -449,8 +450,10 @@ const getKeywordTrend = (keyword: KeywordDataPoint): 'up' | 'down' | 'stable' =>
           </AlertDescription>
         </div>
       </Alert>
+    <!-- </Card> -->
 
       <!-- No Significant Change -->
+      <!-- <Card class="mb-8 bg-white shadow-sm hover:shadow-md transition-shadow duration-200"> -->
       <Alert v-else
         class="mb-8 shadow-sm hover:shadow-md transition-all duration-200 border border-amber-500/10 bg-gradient-to-br from-amber-50/60 to-yellow-50/60 rounded-lg flex items-center gap-3">
         <div
@@ -467,6 +470,7 @@ const getKeywordTrend = (keyword: KeywordDataPoint): 'up' | 'down' | 'stable' =>
           </AlertDescription>
         </div>
       </Alert>
+    <!-- </Card> -->
 
       <!-- Recent Activity -->
       <Card class="mb-8 bg-white shadow-sm hover:shadow-md transition-shadow duration-200">
