@@ -862,7 +862,7 @@ watch(currentPage, (newPage) => {
               <h2 class="text-lg font-medium text-gray-700 mb-4"
                 v-html="processContent(mention.title, mention.keyword_term)">
               </h2>
-              <p class="text-gray-600 leading-relaxed mb-4 text-center"
+              <p class="text-gray-600 leading-relaxed mb-4"
                 v-html="processContent(mention.content, mention.keyword_term)"></p>
             </div>
 
