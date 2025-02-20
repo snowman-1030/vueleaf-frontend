@@ -155,7 +155,7 @@
       </Table>
     </CardContent>
     <CardFooter class="pt-6 flex flex-col-reverse sm:flex-row items-center justify-between">
-      <p class="text-xs sm:text-sm text-gray-500 text-justify mr-2">
+      <p class="text-xs sm:text-sm text-gray-500 text-justify mr-2 mt-5 sm:mt-0">
         Tracking updates occur every 15 minutes. Last updated: 5 minutes ago.
       </p>
       <div class="flex items-center space-x-2">
