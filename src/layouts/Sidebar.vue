@@ -122,7 +122,7 @@ const isCollapsed = ref(false)
     <div class="h-16 flex items-center border-b border-white/10">
       <template v-if="!isCollapsed">
         <div class="flex-1 flex items-center px-6 py-1.5">
-          <img src="@/assets/images/VUELEAF_logo.png" alt="VueLeaf Logo" class="h-10 object-contain" />
+          <img src="@/assets/images/VUELEAF_logo_white.png" alt="VueLeaf Logo" class="h-10 object-contain" />
         </div>
       </template>
       <div class="flex items-center justify-center" :class="[isCollapsed ? 'w-full px-3' : 'px-4']">
