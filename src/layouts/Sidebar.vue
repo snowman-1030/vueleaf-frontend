@@ -190,7 +190,7 @@ const isCollapsed = ref(false)
           <img v-if="authStore.avatar" :src="authStore.avatar" :alt="authStore.username"
             class="w-full h-full object-cover" />
           <span v-else class="text-sm font-medium text-gray-600">
-            {{ authStore.username.charAt(0).toUpperCase() }}
+            {{ authStore?.username?.charAt(0).toUpperCase() }}
           </span>
         </div>
         <template v-if="!isCollapsed">

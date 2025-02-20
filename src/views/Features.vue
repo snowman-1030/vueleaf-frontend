@@ -115,13 +115,13 @@ onMounted(() => {
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class=" mb-16">
           <div class="flex flex-col  mb-8">
-            <div class="flext items-center mx-auto md:mx-0">
+            <div class="flex items-center justify-center mx-auto md:mx-0">
               <div class="w-16 h-1  bg-green-500 mb-6"></div>
             </div>
-            <h2 class="md:text-4xl font-bold text-green-800 mb-4 text-3xl text-center md:text-start">
+            <h2 class="md:text-4xl font-bold text-green-800 mb-4 text-3xl text-center">
               Your Brand's Digital Guardian
             </h2>
-            <p class="md:text-xl text-gray-700 max-w-2xl text-md text-center md:text-start">
+            <p class="md:text-xl text-gray-700 text-md text-center">
               Complete visibility and control over your online presence
             </p>
           </div>
@@ -166,14 +166,14 @@ onMounted(() => {
         <div class=" mb-16">
           <div class="flex flex-col  mb-8">
             <!-- <div class="w-16 h-1 bg-green-500 mb-6"></div> -->
-            <div class="flext items-center mx-auto md:mx-0">
+            <div class="flex items-center justify-center mx-auto md:mx-0">
               <div class="w-16 h-1  bg-green-500 mb-6"></div>
             </div>
-            <h2 class="md:text-4xl font-bold text-green-800 md:mb-6 text-3xl mb-0 text-center md:text-start">
+            <h2 class="md:text-4xl font-bold text-green-800 md:mb-6 text-3xl mb-0 text-center ">
               Comprehensive Monitoring Tools
             </h2>
           </div>
-          <p class="md:text-xl text-gray-700 md:mb-12 mb-8 text-md text-center md:text-start">
+          <p class="md:text-xl text-gray-700 md:mb-12 mb-8 text-md text-center ">
             Stay on top of your online presence with our powerful tracking and analysis tools.
           </p>
         </div>
@@ -191,13 +191,13 @@ onMounted(() => {
             <div class="md:col-span-3">
               <div class="flex flex-col text-center md:text-start mb-8">
                 <!-- <div class="w-16 h-1 bg-green-500 mb-6"></div> -->
-                <div class="flext items-center mx-auto md:mx-0">
+                <div class="flex items-center justify-center mx-auto md:mx-0">
                   <div class="w-16 h-1  bg-green-500 mb-6"></div>
                 </div>
-                <h3 class="text-3xl font-bold text-green-800 mb-6 text-center md:text-start">
+                <h3 class="text-3xl font-bold text-green-800 mb-6 text-center">
                   Smart Cannabis Analytics
                 </h3>
-                <p class="md:text-xl text-gray-700 mb-8 text-md text-center md:text-start">
+                <p class="md:text-xl text-gray-700 mb-8 text-md text-center">
                   Get deep visibility into your brand's performance with our comprehensive tracking tools.
                 </p>
               </div>
@@ -247,14 +247,14 @@ onMounted(() => {
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="mb-16">
           <div class="flex flex-col mb-8">
-            <div class="flext items-center mx-auto md:mx-0">
+            <div class="flex items-center justify-center mx-auto md:mx-0">
               <div class="w-16 h-1  bg-green-500 mb-6"></div>
             </div>
-            <h2 class="md:text-4xl font-bold text-green-800 mb-6 text-3xl text-center md:text-start">
+            <h2 class="md:text-4xl font-bold text-green-800 mb-6 text-3xl text-center">
               Industry-Leading Brand Intelligence
             </h2>
           </div>
-          <p class="md:text-xl md:text-start text-center text-gray-700 mb-16 max-w-3xl text-md ">
+          <p class="md:text-xl text-center text-gray-700 mb-16 text-md ">
             Your brand never sleeps, and neither does our AI. We understand cannabis conversations like no other
             platform can.
           </p>

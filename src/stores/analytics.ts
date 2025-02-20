@@ -195,20 +195,20 @@ export const useAnalyticsStore = defineStore('analytics', () => {
   })
 
   // Use memoized values for stats
-  const overallStats = computed(() => {
-    if (!allPosts.value) return null
+  // const overallStats = computed(() => {
+  //   if (!allPosts.value) return null
 
-    const counts = sentimentCounts.value
-    const calculatePercentage = (value: number) =>
-      counts.total > 0 ? Math.round((value / counts.total) * 100) : 0
+  //   const counts = sentimentCounts.value
+  //   const calculatePercentage = (value: number) =>
+  //     counts.total > 0 ? Math.round((value / counts.total) * 100) : 0
 
-    return {
-      totalMentions: counts.total,
-      positiveSentiment: calculatePercentage(counts.positive),
-      negativeSentiment: calculatePercentage(counts.negative),
-      neutralSentiment: calculatePercentage(counts.neutral)
-    }
-  })
+  //   return {
+  //     totalMentions: counts.total,
+  //     positiveSentiment: calculatePercentage(counts.positive),
+  //     negativeSentiment: calculatePercentage(counts.negative),
+  //     neutralSentiment: calculatePercentage(counts.neutral)
+  //   }
+  // })
 
   // Cache constants
   const CACHE_KEY = 'vueleaf_analytics_data'
@@ -410,6 +410,12 @@ export const useAnalyticsStore = defineStore('analytics', () => {
       sortBy: 'mentions'
     }
     fetchAnalyticsData()
+  }
+
+  const overallStats = {
+    positiveSentiment: 10,
+    totalMentions: 20,
+    
   }
 
   return {

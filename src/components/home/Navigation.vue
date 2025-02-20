@@ -6,8 +6,8 @@ import { RouterLink } from 'vue-router'
 import { Menu, LogOut, X } from 'lucide-vue-next'
 
 // 3. Asset imports
-// import vueleafLogo from '../../assets/images/VUELEAF_logo_white.png'
-import vueleafLogo from '../../assets/images/VUELEAF_logo.png'
+import vueleafLogo from '../../assets/images/VUELEAF_logo_white.png'
+// import vueleafLogo from '../../assets/images/VUELEAF_logo.png'
 
 // 4. Store imports
 import { useAuthStore } from '../../stores/auth'
